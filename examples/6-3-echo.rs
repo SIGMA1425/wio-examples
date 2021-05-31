@@ -49,6 +49,9 @@ fn main() -> ! {
 
     loop {
         // TODO: 受信したデータをそのまま送信する
-        
+        if let Ok(c) = nb::block!(serial.read()){
+            //受信したデータをそのまま送信する
+            nb::block!(serial.write(c)).unwrap();
+        }
     }
 }
