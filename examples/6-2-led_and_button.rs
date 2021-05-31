@@ -21,6 +21,7 @@ fn main() -> ! {
     //PACのPeripheralsオブジェクトの取得
     let peripherals = Peripherals::take().unwrap();
     //PORTの所有権を消費して，GPIOピンがまとめられたオブジェクトを初期化する
+    //内部でsplitメソッドを呼び出している
     let mut pins = wio::Pins::new(peripherals.PORT);
 
     //ユーザLEDのGPIOピンを出力に設定
